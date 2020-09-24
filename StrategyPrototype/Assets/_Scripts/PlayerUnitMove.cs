@@ -10,19 +10,25 @@ public class PlayerUnitMove : MonoBehaviour
         myTransform = GetComponent<Transform>();
     }
 
-
+    private Vector3 pos;
     private Transform myTransform;
     public GameObject myTargetPos;
     public GameObject movePos;
     private Vector3 myVector;
     public bool selected;
+    public GameObject[] selectInds;
     public float speed = 2f;
 
     // Update is called once per frame
     void FixedUpdate()
     {
         Debug.Log("Cur "+selected);
-        myTransform.position = Vector3.MoveTowards(myTransform.position, myTargetPos.gameObject.transform.position, speed * Time.deltaTime);
+        if (myTargetPos != null)
+        {
+            myTransform.position = Vector3.MoveTowards(myTransform.position, myTargetPos.gameObject.transform.position, speed * Time.deltaTime);
+        }
+
+     // pos = Vector3.RotateTowards(myTransform,myTargetPos.GetComponent<Vector3>(),1,3);
 
     }
 
@@ -35,13 +41,21 @@ public class PlayerUnitMove : MonoBehaviour
     public void SelectMe()
     {
         selected = true;
-        Debug.Log(selected);
+        for (int i = 0; i < selectInds.Length; i++)
+        {
+            selectInds[i].SetActive(true);
+        }
+
     }
 
     public void DeselectMe()
     {
         selected = false;
-        Debug.Log(selected);
+        for (int i = 0; i < selectInds.Length; i++)
+        {
+            selectInds[i].SetActive(false);
+        }
+
     }
 
     

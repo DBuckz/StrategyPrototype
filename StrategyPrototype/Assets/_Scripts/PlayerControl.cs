@@ -25,6 +25,7 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        pos = new Vector3();
         units = GameObject.FindGameObjectsWithTag("UnitPlayer");
         //   myTransform.position = cam.ScreenToWorldPoint(Input.mousePosition);
         var vert = Input.GetAxis("Mouse Y");
@@ -35,10 +36,7 @@ public class PlayerControl : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, Mathf.Infinity))
         {
-            if (hit.collider.tag == "UnitPlayer" && Input.GetMouseButtonDown(0))
-            {
-                hit.collider.GetComponent<PlayerUnitMove>().SelectMe(); // Runs function SelectMe in PlayerUnitMove
-            }
+            
 
             if (hit.collider.tag == "CursorHitCol")     // hits cursor nav plane
             {
@@ -64,7 +62,7 @@ public class PlayerControl : MonoBehaviour
                     
 
                 }
-                else if (Input.GetMouseButtonUp(0))
+                else if (Input.GetMouseButtonUp(0)) ///////////////////////////////////////////////////////////////////////////////////////////////
                 {
                   // destinationPrefab = Instantiate(destinationPrefab, transform.position, Quaternion.identity) as GameObject;
 
@@ -74,9 +72,12 @@ public class PlayerControl : MonoBehaviour
                         {
                             if (units[i].GetComponent<PlayerUnitMove>().myTargetPos == null)
                             {
-                                units[i].GetComponent<PlayerUnitMove>().myTargetPos = Instantiate(destinationPrefab, transform.position, Quaternion.identity);
+                                
+                                    units[i].GetComponent<PlayerUnitMove>().myTargetPos = Instantiate(destinationPrefab, pos = new Vector3(transform.position.x +(1.5f*i),transform.position.y,transform.position.z), Quaternion.identity);
+                                
+                                
                             }
-                            else
+                            else    // Moves destination instead of destroy & replace
                             {
                                 units[i].GetComponent<PlayerUnitMove>().myTargetPos.GetComponent<Transform>().position = transform.position;
                             }
@@ -104,9 +105,12 @@ public class PlayerControl : MonoBehaviour
             
         }
 
-        if (Physics.Raycast(ray))
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, 1<<9))       // Ray specifically to select and can pass through base nav plane
         {
-            
+            if (hit.collider.tag == "UnitPlayer" && Input.GetMouseButtonDown(0))
+            {
+                hit.collider.GetComponent<PlayerUnitMove>().SelectMe(); // Runs function SelectMe in PlayerUnitMove
+            }
         }
 
 
