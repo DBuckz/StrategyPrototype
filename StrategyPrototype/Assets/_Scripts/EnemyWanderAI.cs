@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class EnemyWanderAI : MonoBehaviour
 {
+    public float viewDis=5;
+
+
 
     public float moveSpeed = 3f;
     public float rotSpeed = 100f;
-
+    
     private bool isWandering = false;
 
     private bool isRotLeft = false;
@@ -107,5 +110,12 @@ public class EnemyWanderAI : MonoBehaviour
        
 
         isWandering = false;
+    }
+
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(transform.position, transform.forward * viewDis);
     }
 }
