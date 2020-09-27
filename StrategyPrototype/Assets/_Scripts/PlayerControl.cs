@@ -73,7 +73,7 @@ public class PlayerControl : MonoBehaviour
                             if (units[i].GetComponent<PlayerUnitMove>().myTargetPos == null)
                             {
                                 
-                                    units[i].GetComponent<PlayerUnitMove>().myTargetPos = Instantiate(destinationPrefab, pos = new Vector3(transform.position.x +(1.5f*i),transform.position.y,transform.position.z), Quaternion.identity);
+                                    units[i].GetComponent<PlayerUnitMove>().myTargetPos = Instantiate(destinationPrefab, pos = new Vector3(transform.position.x +(1.5f*i-1.5f),transform.position.y,transform.position.z), Quaternion.identity);
                                 
                                 
                             }

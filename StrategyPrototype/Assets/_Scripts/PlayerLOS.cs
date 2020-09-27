@@ -33,13 +33,9 @@ public class PlayerLOS : MonoBehaviour
         //Ray ray;
 
         //RaycastHit hit;
-        
 
-        
      /*   
-        var enemyVis = enemy.GetComponent<EnemyControl>().isVisible;
-        
-
+        var enemyVis = enemy.GetComponent<EnemyControl>().isVisible;  
         if (Physics.Raycast(transform.position, direction, out hits, range))
         {
             enemyVis = true;
@@ -68,7 +64,7 @@ public class PlayerLOS : MonoBehaviour
             //else { enemyVis = false; }
 
             Debug.Log("test");
-            if (/*distanceToEnemy < range &&*/ Physics.Raycast(transform.position,direction,out hit, range) && hit.collider.tag == "UnitEnemy" )
+            if (Physics.Raycast(transform.position,direction,out hit, range) && hit.collider.tag == "UnitEnemy" )
             {
                 
             }

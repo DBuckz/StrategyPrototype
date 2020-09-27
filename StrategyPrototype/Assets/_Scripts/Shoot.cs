@@ -4,21 +4,33 @@ using UnityEngine;
 
 public class Shoot : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
+    [Header("Weapon Settings")]
     public GameObject projectile;
-    public float fireRate;
-    public float coolDown;
+    public GameObject firepoint;
+    public TurretControl myTurret;
+    public float fireRate = 10f;
+    private float cooldown = 0f;
+
+    [Header("Weapon Effects")]
+    public GameObject[] myEffects;
+
     // Update is called once per frame
     void FixedUpdate()
     {
-        coolDown += coolDown * Time.deltaTime;
-        if (coolDown > 1 / fireRate)
+        cooldown += 1f * Time.deltaTime;
+        if (cooldown > 1 / fireRate && myTurret.target == true)
         {
-           // coolDown = 
+            if (myEffects != null)  // Particle Effects etc....
+            {
+                for (int i = 0; i < myEffects.Length; i++)
+                {
+                    Instantiate(myEffects[i],firepoint.transform.position,firepoint.transform.rotation);
+                }
+            }
+
+            Instantiate(projectile,firepoint.transform.position, firepoint.transform.rotation);
+            cooldown = 0f;
         }
     }
 
