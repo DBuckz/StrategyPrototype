@@ -15,6 +15,8 @@ public class PlayerLOS : MonoBehaviour
 
     public Transform target;
     public LayerMask mask;
+    public TurretControl myTurret;
+
   //  public Transform targetVisible;
 
 
@@ -43,7 +45,6 @@ public class PlayerLOS : MonoBehaviour
         */
 
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("UnitEnemy");
-
         float shortestDistance = Mathf.Infinity;
         GameObject nearestEnemy = null;
 
@@ -63,24 +64,42 @@ public class PlayerLOS : MonoBehaviour
 
             //else { enemyVis = false; }
 
-            Debug.Log("test");
             if (Physics.Raycast(transform.position,direction,out hit, range) && hit.collider.tag == "UnitEnemy" )
             {
                 
             }
 
-            if (distanceToEnemy < shortestDistance)    // checks for closest AND visible
+            if (distanceToEnemy < shortestDistance)    // checks for closest
             {
-                shortestDistance = distanceToEnemy;
-                nearestEnemy = enemy;   // this enemy is the closest
-                                        //  enemyVis = true;
+
+
+                // -------------------- checks for closest in range AND within gun angle -------------------------- 
+                if (myTurret.upPlaneOn == true && myTurret.downPlaneOn == false && myTurret.upperPlane.transform.position.y >= enemy.transform.position.y) // upper plane // downwards shooting
+                {
+                    shortestDistance = distanceToEnemy;
+                    nearestEnemy = enemy;
+                }
                 
+
+                if (myTurret.upPlaneOn == false && myTurret.downPlaneOn == true && myTurret.lowerPlane.position.y <= enemy.transform.position.y) // lower plane // upwards shooting
+                {
+                    shortestDistance = distanceToEnemy;
+                    nearestEnemy = enemy;
+                }
+                
+
+                if (myTurret.upPlaneOn == true && myTurret.downPlaneOn == true && myTurret.upperPlane.position.y >= enemy.transform.position.y && myTurret.lowerPlane.position.y <= enemy.transform.position.y) // within two planes
+                {
+                    shortestDistance = distanceToEnemy;
+                    nearestEnemy = enemy;
+                }
+                
+
             }
 
-            if (nearestEnemy != null && shortestDistance < range)
+            if (nearestEnemy != null && shortestDistance < range)   // >>>>>>> finalizes the target <<<<<<<
             {
                 target = nearestEnemy.transform;
-                
             }
             else
             {
@@ -99,7 +118,7 @@ public class PlayerLOS : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
+        Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position,range);
       //  Gizmos.color = Color.yellow;
         

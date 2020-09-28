@@ -17,11 +17,38 @@ public class TurretControl : MonoBehaviour
     public Transform upperPlane;
     public Transform lowerPlane;
 
-    public GameObject target;
+    public PlayerLOS PlayerControl;
+    public EnemyLOS EnemyControl;
+
+    public Transform target;
+
+
 
     // Update is called once per frame
     void Update()
     {
+        ReceiveTarget();
+        if (target != null)
+        {
+            transform.LookAt(target.transform);
+        }
         
+
+
+
     }
+
+
+    public void ReceiveTarget()
+    {
+
+        if (PlayerControl == true ^ EnemyControl == true)   // either one but not both
+        {
+            if (PlayerControl) target = PlayerControl.target;
+
+            if (EnemyControl) target = EnemyControl.target;
+        }
+
+    }
+
 }

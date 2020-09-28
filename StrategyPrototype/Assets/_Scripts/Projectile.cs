@@ -16,6 +16,9 @@ public class Projectile : MonoBehaviour
     public float lifetime = 5f;
     public int damage = 5;
 
+    [Header("Effects")]
+    public GameObject[] effects;
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -36,7 +39,15 @@ public class Projectile : MonoBehaviour
             var targetHit = collision.collider.GetComponent<UnitStats>();
 
             targetHit.health -= damage;
-           // Destroy(collision.collider.gameObject);
+            // Destroy(collision.collider.gameObject);
+
+            if (effects != null)
+            {
+                for (int i = 0; i < effects.Length; i ++)
+                {
+                    Instantiate(effects[i],transform.position,Quaternion.identity);
+                }
+            }
 
             Destroy(gameObject);
 
