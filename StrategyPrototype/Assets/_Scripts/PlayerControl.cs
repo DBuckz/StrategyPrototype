@@ -17,6 +17,7 @@ public class PlayerControl : MonoBehaviour
     public LayerMask mask = 8;
     public GameObject axis;
     public GameObject YaxisControl;
+    public GameObject unitOptions;
     [SerializeField]
     private GameObject[] units;
     public GameObject destinationPrefab;
@@ -45,7 +46,7 @@ public class PlayerControl : MonoBehaviour
             {
 
 
-                if (Input.GetMouseButton(1))
+                if (Input.GetMouseButton(1))    // Move Unit X,Z
                 {
                     
                     axis.SetActive(true);
@@ -58,15 +59,15 @@ public class PlayerControl : MonoBehaviour
                     
 
                 }
-                else if (Input.GetMouseButtonUp(1)) ///////////////////////////////////////////////////////////////////////////////////////////////
+                else if (Input.GetMouseButtonUp(1)) // Move Unit Y
                 {
                     
                     Cursor.lockState = CursorLockMode.None;
                     YaxisControl.SetActive(false);
 
-                    for (int i = 0; i < units.Length; i++)
+                    for (int i = 0; i < units.Length; i++) // Set Unit Positions
                     {
-                        if (units[i].GetComponent<PlayerUnitMove>().selected == true)
+                        if (units[i].GetComponent<PlayerUnitMove>().selected == true) 
                         {
                             if (units[i].GetComponent<PlayerUnitMove>().myTargetPos == null)
                             {
@@ -111,6 +112,19 @@ public class PlayerControl : MonoBehaviour
                 hit.collider.GetComponent<PlayerUnitMove>().SelectMe(); // Runs function SelectMe in PlayerUnitMove
             }
         }
+
+        #region Middle Click Options
+
+        if (Input.GetMouseButtonDown(2))
+        {
+            unitOptions.SetActive(true);
+        }
+        if (Input.GetMouseButtonUp(2))
+        {
+            unitOptions.SetActive(false);
+        }
+
+        #endregion
 
 
     }
