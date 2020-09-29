@@ -16,11 +16,14 @@ public class PlayerControl : MonoBehaviour
     private Vector3 pos;
     public LayerMask mask = 8;
     public GameObject axis;
+    public GameObject YaxisControl;
     [SerializeField]
     private GameObject[] units;
     public GameObject destinationPrefab;
 
-
+    public float mouseSensY = 5f;
+    private float moveUD;
+    
 
     // Update is called once per frame
     void Update()
@@ -42,29 +45,24 @@ public class PlayerControl : MonoBehaviour
             {
 
 
-                if (Input.GetMouseButton(0))
+                if (Input.GetMouseButton(1))
                 {
                     
                     axis.SetActive(true);
-                    // myTransform.Translate(new Vector3(0f, 0.1f * Input.GetAxis("Mouse Y"), 0f));
-
                     
-
-                    if (Input.GetAxis("Mouse ScrollWheel") < 0)
-                    {
-                        myTransform.Translate(new Vector3(0f, 2f, 0f) * Input.GetAxis("Mouse ScrollWheel"));
-                    }
-                    if (Input.GetAxis("Mouse ScrollWheel") > 0)
-                    {
-                        myTransform.Translate(new Vector3(0f, -2f, 0f) * -Input.GetAxis("Mouse ScrollWheel"));
-                    }
-
+                    Cursor.lockState = CursorLockMode.Confined;
+                    YaxisControl.SetActive(true);               // Activates an invisible plane, to allow Y level control without relying on terrain raycast to register
+                    moveUD = Input.GetAxis("Mouse Y") * mouseSensY * Time.deltaTime;
+                    myTransform.Translate(new Vector3(0,moveUD,0));
+                
                     
 
                 }
-                else if (Input.GetMouseButtonUp(0)) ///////////////////////////////////////////////////////////////////////////////////////////////
+                else if (Input.GetMouseButtonUp(1)) ///////////////////////////////////////////////////////////////////////////////////////////////
                 {
-                  // destinationPrefab = Instantiate(destinationPrefab, transform.position, Quaternion.identity) as GameObject;
+                    
+                    Cursor.lockState = CursorLockMode.None;
+                    YaxisControl.SetActive(false);
 
                     for (int i = 0; i < units.Length; i++)
                     {
@@ -88,10 +86,11 @@ public class PlayerControl : MonoBehaviour
                 else   // Deselect
                 {
                     axis.SetActive(false);
+                    
                     myTransform.position = hit.point;
                 }
 
-                if (Input.GetMouseButtonDown(1))    // Deselects all selected units
+                if (Input.GetMouseButtonDown(0))    // Deselects all selected units
                 {
                   units = GameObject.FindGameObjectsWithTag("UnitPlayer");
 
