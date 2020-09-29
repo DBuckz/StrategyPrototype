@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class EnemyWanderAI : MonoBehaviour
 {
-    public float viewDis=5;
+    public float viewDis = 5;
 
 
 
     public float moveSpeed = 3f;
     public float rotSpeed = 100f;
-    
+
     private bool isWandering = false;
 
     private bool isRotLeft = false;
     private bool isRotRight = false;
     private bool isWalking = false;
-    private bool isMovingUp=false;
-    private bool isMovingDown=false;
+    private bool isMovingUp = false;
+    private bool isMovingDown = false;
     void Start()
     {
 
@@ -26,6 +26,8 @@ public class EnemyWanderAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
         if (isWandering == false)
         {
             StartCoroutine(Wander());
@@ -45,7 +47,7 @@ public class EnemyWanderAI : MonoBehaviour
         {
             transform.position += transform.forward * moveSpeed * Time.deltaTime;
         }
-        if(isMovingUp==true)
+        if (isMovingUp == true)
         {
             transform.position += transform.up * moveSpeed * Time.deltaTime;
         }
@@ -70,7 +72,7 @@ public class EnemyWanderAI : MonoBehaviour
         isWandering = true;
         yield return new WaitForSeconds(walkWait);
         isWalking = true;
-        if (moveUporDown <=0)
+        if (moveUporDown <= 0)
         {
             isMovingUp = false;
             isMovingDown = false;
@@ -107,15 +109,17 @@ public class EnemyWanderAI : MonoBehaviour
 
 
         }
-       
+
 
         isWandering = false;
     }
 
+    public enum action
+        {
+        Wander,
+        Attack,
+        Chase,
+        }
 
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawRay(transform.position, transform.forward * viewDis);
-    }
+    
 }
