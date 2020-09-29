@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemyWanderAI : MonoBehaviour
 {
+
+
+    //currently cant get enemy to stop close to player or have more than one player
     public float viewDis = 5;
 
 
@@ -18,43 +21,75 @@ public class EnemyWanderAI : MonoBehaviour
     private bool isWalking = false;
     private bool isMovingUp = false;
     private bool isMovingDown = false;
+    public Action type;
+    
+    public GameObject playerPos;
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-
-
-        if (isWandering == false)
+        if (EnemyVision.playerIsInLOS == true)
         {
-            StartCoroutine(Wander());
+            type = Action.Attack;
         }
-        if (isRotRight == true)
+        else if (EnemyVision.playerIsInLOS == false)
         {
-            transform.Rotate(transform.up * Time.deltaTime * rotSpeed);
-
+            type = Action.Wander;
         }
 
-        if (isRotLeft == true)
+        if (type == Action.Wander)
         {
-            transform.Rotate(transform.up * Time.deltaTime * -rotSpeed);
+            if (isWandering == false)
+            {
+                StartCoroutine(Wander());
+            }
+            if (isRotRight == true)
+            {
+                transform.Rotate(transform.up * Time.deltaTime * rotSpeed);
 
-        }
-        if (isWalking == true)
+            }
+
+            if (isRotLeft == true)
+            {
+                transform.Rotate(transform.up * Time.deltaTime * -rotSpeed);
+
+            }
+            if (isWalking == true)
+            {
+                transform.position += transform.forward * moveSpeed * Time.deltaTime;
+            }
+            if (isMovingUp == true)
+            {
+                transform.position += transform.up * moveSpeed * Time.deltaTime;
+            }
+            if (isMovingDown == true)
+            {
+                transform.position -= transform.up * moveSpeed * Time.deltaTime;
+            }
+        }else if (type == Action.Attack)
         {
-            transform.position += transform.forward * moveSpeed * Time.deltaTime;
+            transform.LookAt(playerPos.transform);
+
+           /* Vector3 newplayerPos = playerPos.transform.position;
+            newplayerPos.y = transform.position.y;
+            newplayerPos.z = transform.position.z;
+
+            float distance = Vector3.Distance(transform.position, newplayerPos);
+            if (distance<5)
+            {
+                newplayerPos.x = transform.position.x ;
+            }
+
+            Debug.Log(distance);
+            */
+            transform.position = Vector3.MoveTowards(transform.position, playerPos.transform.position, .03f) ;
+            // here is how it targets the player
         }
-        if (isMovingUp == true)
-        {
-            transform.position += transform.up * moveSpeed * Time.deltaTime;
-        }
-        if (isMovingDown == true)
-        {
-            transform.position -= transform.up * moveSpeed * Time.deltaTime;
-        }
+       
     }
 
 
@@ -114,7 +149,7 @@ public class EnemyWanderAI : MonoBehaviour
         isWandering = false;
     }
 
-    public enum action
+    public enum     Action
         {
         Wander,
         Attack,

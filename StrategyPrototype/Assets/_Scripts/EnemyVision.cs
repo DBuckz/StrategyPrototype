@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyVision : MonoBehaviour
 {
-    public bool playerISInLOS = false;
+    public static bool playerIsInLOS = false;
     public float fieldOfViewAngle=160f;
     public float losRadius = 45f;
 
@@ -20,13 +20,13 @@ public class EnemyVision : MonoBehaviour
        
     }
 
-    // Update is called once per frame
+  
     void Update()
     {
 
-     
 
 
+   playerIsInLOS = false;
 
 
 
@@ -51,10 +51,12 @@ public class EnemyVision : MonoBehaviour
             {
                 if(hit.collider.tag== "UnitPlayer")
                 {
-                    playerISInLOS = true;
+                    playerIsInLOS = true;
                     
                     
                 }
+                else playerIsInLOS = false;
+
             }
         }
 
