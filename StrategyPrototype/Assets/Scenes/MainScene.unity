@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 24313152}
   - component: {fileID: 24313157}
   - component: {fileID: 24313158}
+  - component: {fileID: 24313159}
   m_Layer: 9
   m_Name: Enemy2 (2)
   m_TagString: UnitEnemy
@@ -268,6 +269,21 @@ MonoBehaviour:
   health: 10
   isDead: 0
   effects: []
+--- !u!114 &24313159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24313151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cb5e31c0093e824ab639e18c00c86c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewDis: 5
+  moveSpeed: 3
+  rotSpeed: 100
 --- !u!1 &74064439
 GameObject:
   m_ObjectHideFlags: 0
@@ -599,6 +615,7 @@ GameObject:
   - component: {fileID: 339981182}
   - component: {fileID: 339981187}
   - component: {fileID: 339981188}
+  - component: {fileID: 339981189}
   m_Layer: 9
   m_Name: Enemy1 (1)
   m_TagString: UnitEnemy
@@ -729,6 +746,21 @@ MonoBehaviour:
   health: 10
   isDead: 0
   effects: []
+--- !u!114 &339981189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339981181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cb5e31c0093e824ab639e18c00c86c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewDis: 5
+  moveSpeed: 3
+  rotSpeed: 100
 --- !u!1 &432815395
 GameObject:
   m_ObjectHideFlags: 0
@@ -744,6 +776,7 @@ GameObject:
   - component: {fileID: 432815396}
   - component: {fileID: 432815401}
   - component: {fileID: 432815402}
+  - component: {fileID: 432815403}
   m_Layer: 9
   m_Name: Enemy2 (1)
   m_TagString: UnitEnemy
@@ -874,6 +907,21 @@ MonoBehaviour:
   health: 10
   isDead: 0
   effects: []
+--- !u!114 &432815403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432815395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cb5e31c0093e824ab639e18c00c86c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewDis: 5
+  moveSpeed: 3
+  rotSpeed: 100
 --- !u!1 &507478475
 GameObject:
   m_ObjectHideFlags: 0
@@ -1579,12 +1627,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0500733e9afcc7643b04e7965eb13120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 10
-  sightDist: 10
-  target: {fileID: 0}
-  mask:
-    m_Bits: 0
-  myTurret: {fileID: 0}
 --- !u!1 &1430513386 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2545041606888197751, guid: 19a27758b631ce644aeb9fc5ceff3c11, type: 3}
@@ -1602,12 +1644,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0500733e9afcc7643b04e7965eb13120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 15
-  sightDist: 0
-  target: {fileID: 0}
-  mask:
-    m_Bits: 0
-  myTurret: {fileID: 0}
 --- !u!1 &1469731195
 GameObject:
   m_ObjectHideFlags: 0
@@ -1721,6 +1757,7 @@ GameObject:
   - component: {fileID: 1565869062}
   - component: {fileID: 1565869067}
   - component: {fileID: 1565869068}
+  - component: {fileID: 1565869069}
   m_Layer: 9
   m_Name: Enemy1 (2)
   m_TagString: UnitEnemy
@@ -1851,6 +1888,21 @@ MonoBehaviour:
   health: 10
   isDead: 0
   effects: []
+--- !u!114 &1565869069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565869061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cb5e31c0093e824ab639e18c00c86c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewDis: 5
+  moveSpeed: 3
+  rotSpeed: 100
 --- !u!114 &1569959457 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6715850208677983760, guid: 8bf9bf1b8882b544e90c59f687de2155, type: 3}
@@ -1988,6 +2040,7 @@ GameObject:
   - component: {fileID: 1958146480}
   - component: {fileID: 1958146481}
   - component: {fileID: 1958146482}
+  - component: {fileID: 1958146483}
   m_Layer: 9
   m_Name: Enemy2
   m_TagString: UnitEnemy
@@ -2118,6 +2171,41 @@ MonoBehaviour:
   health: 10
   isDead: 0
   effects: []
+--- !u!114 &1958146483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958146475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cb5e31c0093e824ab639e18c00c86c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewDis: 5
+  moveSpeed: 3
+  rotSpeed: 100
+--- !u!1 &2012252364 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 902542865955048104, guid: e27715ad02bff634786d99ed07bebbaf, type: 3}
+  m_PrefabInstance: {fileID: 902542864675075948}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2012252372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012252364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cb5e31c0093e824ab639e18c00c86c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewDis: 5
+  moveSpeed: 3
+  rotSpeed: 100
 --- !u!1001 &902542864675075948
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2127,7 +2215,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 902542865955048100, guid: e27715ad02bff634786d99ed07bebbaf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.79
+      value: 8.8
       objectReference: {fileID: 0}
     - target: {fileID: 902542865955048100, guid: e27715ad02bff634786d99ed07bebbaf, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2135,7 +2223,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 902542865955048100, guid: e27715ad02bff634786d99ed07bebbaf, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.71
+      value: 4.13
       objectReference: {fileID: 0}
     - target: {fileID: 902542865955048100, guid: e27715ad02bff634786d99ed07bebbaf, type: 3}
       propertyPath: m_LocalRotation.x
@@ -2177,8 +2265,7 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 902542865955048101, guid: e27715ad02bff634786d99ed07bebbaf, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e27715ad02bff634786d99ed07bebbaf, type: 3}
 --- !u!1001 &2435296751878711482
 PrefabInstance:

@@ -35,7 +35,7 @@ public class EnemyControl : MonoBehaviour
     public void Visibility()
     {
         myMeshRend.enabled = isVisible;
-/*
+
         if (isVisible)
         {
             resetVisTimer -= 1 * Time.deltaTime;
@@ -50,7 +50,7 @@ public class EnemyControl : MonoBehaviour
         {
             resetVisTimer = resetVisTimerMax;
         }
-        */
+        
     }
     
 }
