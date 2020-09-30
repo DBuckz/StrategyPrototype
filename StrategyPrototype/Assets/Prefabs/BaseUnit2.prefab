@@ -369,11 +369,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3543969837030547583}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0500733e9afcc7643b04e7965eb13120, type: 3}
+  m_Script: {fileID: 11500000, guid: a4a6bb2c1a011e140899ffab4e07cbe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   range: 15
-  sightDist: 15
+  sightDist: 0
   target: {fileID: 0}
   mask:
     serializedVersion: 2
@@ -5685,6 +5685,10 @@ PrefabInstance:
       propertyPath: downPlaneOn
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7463297364776489178, guid: 5acfab3352d4b204499cc982fafe5d1b, type: 3}
+      propertyPath: PlayerLOS
+      value: 
+      objectReference: {fileID: 2600899908316141558}
     - target: {fileID: 7463297364776489179, guid: 5acfab3352d4b204499cc982fafe5d1b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

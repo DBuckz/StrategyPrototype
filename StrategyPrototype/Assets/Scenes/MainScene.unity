@@ -154,7 +154,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 24313151}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e233ccc57f9634940bb6f418e0786026, type: 3}
+  m_Script: {fileID: 11500000, guid: 74644f9a2ee9c78408aca7c7e3069ca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isVisible: 0
@@ -297,7 +297,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 74064439}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6f0dad71ac136648848397399c6d185, type: 3}
+  m_Script: {fileID: 11500000, guid: 2a4a19af019e4614cb8af4486c25118d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   myTransform: {fileID: 0}
@@ -615,7 +615,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 339981181}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e233ccc57f9634940bb6f418e0786026, type: 3}
+  m_Script: {fileID: 11500000, guid: 74644f9a2ee9c78408aca7c7e3069ca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isVisible: 0
@@ -760,7 +760,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 432815395}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e233ccc57f9634940bb6f418e0786026, type: 3}
+  m_Script: {fileID: 11500000, guid: 74644f9a2ee9c78408aca7c7e3069ca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isVisible: 0
@@ -1583,7 +1583,6 @@ MonoBehaviour:
   sightDist: 10
   target: {fileID: 0}
   mask:
-    serializedVersion: 2
     m_Bits: 0
   myTurret: {fileID: 0}
 --- !u!1 &1430513386 stripped
@@ -1607,7 +1606,6 @@ MonoBehaviour:
   sightDist: 0
   target: {fileID: 0}
   mask:
-    serializedVersion: 2
     m_Bits: 0
   myTurret: {fileID: 0}
 --- !u!1 &1469731195
@@ -1739,7 +1737,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1565869061}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e233ccc57f9634940bb6f418e0786026, type: 3}
+  m_Script: {fileID: 11500000, guid: 74644f9a2ee9c78408aca7c7e3069ca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isVisible: 0
@@ -2082,7 +2080,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1958146475}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e233ccc57f9634940bb6f418e0786026, type: 3}
+  m_Script: {fileID: 11500000, guid: 74644f9a2ee9c78408aca7c7e3069ca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isVisible: 0
@@ -2175,7 +2173,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: BaseEnemy
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 4361345872759389739, guid: e27715ad02bff634786d99ed07bebbaf, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 902542865955048101, guid: e27715ad02bff634786d99ed07bebbaf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e27715ad02bff634786d99ed07bebbaf, type: 3}
 --- !u!1001 &2435296751878711482
 PrefabInstance:
