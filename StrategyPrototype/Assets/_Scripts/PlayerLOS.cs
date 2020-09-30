@@ -56,7 +56,7 @@ public class PlayerLOS : MonoBehaviour
 
             RaycastHit hit;
             Debug.Log(distanceToEnemy);
-            if (Physics.Raycast(transform.position, direction,out hit, Mathf.Infinity) && distanceToEnemy < range)
+            if (Physics.Raycast(transform.position, direction,out hit, Mathf.Infinity) && distanceToEnemy < range && enemy != null)
             {
                 Debug.DrawRay(transform.position, direction);
                 enemy.GetComponent<EnemyControl>().isVisible = true;

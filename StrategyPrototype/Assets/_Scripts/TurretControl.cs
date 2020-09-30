@@ -17,8 +17,8 @@ public class TurretControl : MonoBehaviour
     public Transform upperPlane;
     public Transform lowerPlane;
 
-    public PlayerLOS PlayerControl;
-    public EnemyLOS EnemyControl;
+    public PlayerLOS PlayerLOS;
+    public EnemyLOS EnemyLOS;
 
     public Transform target;
 
@@ -42,11 +42,11 @@ public class TurretControl : MonoBehaviour
     public void ReceiveTarget()
     {
 
-        if (PlayerControl == true ^ EnemyControl == true)   // either one but not both
+        if (PlayerLOS == true ^ EnemyLOS == true)   // either one but not both
         {
-            if (PlayerControl) target = PlayerControl.target;
+            if (PlayerLOS) target = PlayerLOS.target;
 
-            if (EnemyControl) target = EnemyControl.target;
+            if (EnemyLOS) target = EnemyLOS.target;
         }
 
     }

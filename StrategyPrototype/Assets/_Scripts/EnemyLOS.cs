@@ -54,7 +54,7 @@ public class EnemyLOS : MonoBehaviour
 
             }
 
-            if (distanceToPlayer < shortestDistance)    // checks for closest AND within gun angle
+            if (distanceToPlayer < shortestDistance && myTurret != null)    // checks for closest AND within gun angle AND has turret
             {
                 Debug.Log("Check Player Target");
                 if (myTurret.upPlaneOn == true && myTurret.downPlaneOn == false && myTurret.upperPlane.transform.position.y >= p_Unit.transform.position.y) // upper plane // downwards shooting

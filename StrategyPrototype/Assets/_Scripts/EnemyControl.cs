@@ -23,14 +23,7 @@ public class EnemyControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        myMeshRend.enabled = isVisible;
-
-        if (isVisible)
-        {
-
-
-        }
-
+        Visibility();
     }
 
     public void resetVis()
@@ -38,4 +31,26 @@ public class EnemyControl : MonoBehaviour
         isVisible = false;
         resetVisTimer = resetVisTimerMax;
     }
+
+    public void Visibility()
+    {
+        myMeshRend.enabled = isVisible;
+
+        if (isVisible)
+        {
+            resetVisTimer -= 1 * Time.deltaTime;
+
+            if (resetVisTimer <= 0)
+            {
+                isVisible = false;
+                resetVisTimer = resetVisTimerMax;
+            }
+        }
+        else
+        {
+            resetVisTimer = resetVisTimerMax;
+        }
+        
+    }
+    
 }

@@ -109,7 +109,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 902542865955048104}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e233ccc57f9634940bb6f418e0786026, type: 3}
+  m_Script: {fileID: 11500000, guid: 74644f9a2ee9c78408aca7c7e3069ca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isVisible: 0
@@ -280,6 +280,10 @@ PrefabInstance:
       propertyPath: upPlaneOn
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7463297364776489178, guid: 5acfab3352d4b204499cc982fafe5d1b, type: 3}
+      propertyPath: EnemyLOS
+      value: 
+      objectReference: {fileID: 902542865955048102}
     - target: {fileID: 7463297364776489179, guid: 5acfab3352d4b204499cc982fafe5d1b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
