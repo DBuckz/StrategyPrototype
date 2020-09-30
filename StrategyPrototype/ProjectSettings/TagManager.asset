@@ -10,6 +10,9 @@ TagManager:
   - UnitEnemy
   - Projectile
   - Obstacle
+  - Enemy
+  - Bullet
+  - Scrap
   layers:
   - Default
   - TransparentFX
