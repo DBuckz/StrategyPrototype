@@ -8,7 +8,7 @@ public class Projectile : MonoBehaviour
     void Start()
     {
         myTransform = GetComponent<Transform>();
-        myPos = GetComponent<Vector3>();
+    //    myPos = GetComponent<Vector3>();
     }
     Transform myTransform;
     Vector3 myPos;

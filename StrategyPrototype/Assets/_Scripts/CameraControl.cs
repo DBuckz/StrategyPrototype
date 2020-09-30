@@ -7,7 +7,7 @@ public class CameraControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        myPos = GetComponent<Vector3>();
+    //    myPos = GetComponent<Vector3>();
         myTrans = GetComponent<Transform>();
     //    transform.position = new Vector3(0,0,0);
     }

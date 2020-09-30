@@ -22,7 +22,7 @@ public class PlayerUnitMove : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Debug.Log("Cur "+selected);
+      //  Debug.Log("Cur "+selected);
         if (myTargetPos != null)
         {
             myTransform.position = Vector3.MoveTowards(myTransform.position, myTargetPos.gameObject.transform.position, speed * Time.deltaTime);

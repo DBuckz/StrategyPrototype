@@ -22,6 +22,9 @@ public class PlayerControl : MonoBehaviour
     private GameObject[] units;
     public GameObject destinationPrefab;
 
+    public float yRangeLower = 0f;
+    public float yRangeUpper = 20f;
+
     public float mouseSensY = 5f;
     private float moveUD;
     
@@ -53,8 +56,11 @@ public class PlayerControl : MonoBehaviour
                     
                     Cursor.lockState = CursorLockMode.Confined;
                     YaxisControl.SetActive(true);               // Activates an invisible plane, to allow Y level control without relying on terrain raycast to register
-                    moveUD = Input.GetAxis("Mouse Y") * mouseSensY * Time.deltaTime;
-                    myTransform.Translate(new Vector3(0,moveUD,0));
+
+                        moveUD = Input.GetAxis("Mouse Y") * mouseSensY * Time.deltaTime;
+                        myTransform.Translate(new Vector3(0, moveUD, 0));
+                //    Mathf.Clamp(myTransform.position.y,yRangeLower,yRangeUpper);
+                //    myTransform.Translate(Mathf.Clamp(transform.position.y(moveUD),yRangeLower,yRangeUpper));
                 
                     
 
