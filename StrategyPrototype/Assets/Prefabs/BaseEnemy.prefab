@@ -116,7 +116,11 @@ MonoBehaviour:
   isVisible: 0
   resetVisTimerMax: 5
   resetVisTimer: 5
-  myMeshRend: {fileID: 902542865955048106}
+  myMeshRend:
+  - {fileID: 902542865955048106}
+  - {fileID: 7715946668810209159}
+  - {fileID: 7715946669388002389}
+  myCanvas: {fileID: 196159900569240303}
 --- !u!114 &902542865955048102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,6 +274,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 989001f619f7ab540b6d8cb67f88e655, type: 3}
+--- !u!1 &196159900569240303 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 712467553662861736, guid: 989001f619f7ab540b6d8cb67f88e655, type: 3}
+  m_PrefabInstance: {fileID: 818484242266325831}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &6261422313301706001 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6755080031175149142, guid: 989001f619f7ab540b6d8cb67f88e655, type: 3}
@@ -353,6 +362,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7463297364776489179, guid: 5acfab3352d4b204499cc982fafe5d1b, type: 3}
   m_PrefabInstance: {fileID: 902542866173531998}
   m_PrefabAsset: {fileID: 0}
+--- !u!23 &7715946668810209159 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7463297364776489177, guid: 5acfab3352d4b204499cc982fafe5d1b, type: 3}
+  m_PrefabInstance: {fileID: 902542866173531998}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7715946668810209156 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7463297364776489178, guid: 5acfab3352d4b204499cc982fafe5d1b, type: 3}
@@ -364,3 +378,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8641a4c85f5a6e14fbbab1f60a8c0dbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!23 &7715946669388002389 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7463297364270048011, guid: 5acfab3352d4b204499cc982fafe5d1b, type: 3}
+  m_PrefabInstance: {fileID: 902542866173531998}
+  m_PrefabAsset: {fileID: 0}

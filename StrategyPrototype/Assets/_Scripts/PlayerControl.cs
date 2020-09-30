@@ -17,6 +17,7 @@ public class PlayerControl : MonoBehaviour
     public LayerMask mask = 8;
     public GameObject axis;
     public GameObject YaxisControl;
+   // public GameObject planeControl;
     public GameObject unitOptions;
     [SerializeField]
     private GameObject[] units;

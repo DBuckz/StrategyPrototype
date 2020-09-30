@@ -28,6 +28,8 @@ public class PlayerUnitMove : MonoBehaviour
             myTransform.position = Vector3.MoveTowards(myTransform.position, myTargetPos.gameObject.transform.position, speed * Time.deltaTime);
         }
 
+
+
      // pos = Vector3.RotateTowards(myTransform,myTargetPos.GetComponent<Vector3>(),1,3);
 
     }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyControl : MonoBehaviour
 {
@@ -15,7 +16,8 @@ public class EnemyControl : MonoBehaviour
     public float resetVisTimer = 5f;
 
 
-    public Renderer myMeshRend;
+    public Renderer[] myMeshRend;
+    public GameObject myCanvas;
 
     
     
@@ -34,7 +36,12 @@ public class EnemyControl : MonoBehaviour
 
     public void Visibility()
     {
-        myMeshRend.enabled = isVisible;
+
+        for (int i = 0; i < myMeshRend.Length; i++)
+        {
+            myMeshRend[i].enabled = isVisible;
+        }
+        myCanvas.SetActive(isVisible);
 
         if (isVisible)
         {
