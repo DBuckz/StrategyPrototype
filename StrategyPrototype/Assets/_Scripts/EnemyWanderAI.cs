@@ -11,7 +11,7 @@ public class EnemyWanderAI : MonoBehaviour
     public float fieldOfViewAngle = 160f;
     public float losRadius = 45f;
 //vision 
-    //currently cant get enemy to stop close to player or have more than one player
+    //currently cant get enemy to stop close to player 
     public float viewDis = 5;
 
 
