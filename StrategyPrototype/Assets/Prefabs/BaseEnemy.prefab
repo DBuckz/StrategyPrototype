@@ -152,6 +152,8 @@ MonoBehaviour:
   health: 10
   isDead: 0
   effects: []
+  finalDeathEffect: {fileID: 0}
+  timer: 3
 --- !u!114 &4787265745857311020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,11 +166,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb5e31c0093e824ab639e18c00c86c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerIsInLOS: 0
+  playerIsInLOS1: 0
+  playerIsInLOS2: 0
+  fieldOfViewAngle: 160
+  losRadius: 10
   viewDis: 5
   moveSpeed: 3
   rotSpeed: 100
   type: 0
-  playerPos: {fileID: 0}
+  playerPos:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1001 &818484242266325831
 PrefabInstance:
   m_ObjectHideFlags: 0
