@@ -26,7 +26,7 @@ public class EnemyVision : MonoBehaviour
 
 
 
-   playerIsInLOS = false;
+   //playerIsInLOS = false;
 
 
 
@@ -43,7 +43,7 @@ public class EnemyVision : MonoBehaviour
        
         Vector3 direction = playerPos.transform.position - transform.position;
         float angle = Vector3.Angle(direction, transform.forward);
-        Debug.Log(direction);
+       // Debug.Log(direction);
         if (angle < fieldOfViewAngle * 0.5f)
         {
             RaycastHit hit;

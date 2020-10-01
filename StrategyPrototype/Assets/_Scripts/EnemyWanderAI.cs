@@ -5,7 +5,12 @@ using UnityEngine;
 public class EnemyWanderAI : MonoBehaviour
 {
 
-
+    public bool playerIsInLOS = false;
+    public bool playerIsInLOS1 = false;
+    public bool playerIsInLOS2 = false;
+    public float fieldOfViewAngle = 160f;
+    public float losRadius = 45f;
+//vision 
     //currently cant get enemy to stop close to player or have more than one player
     public float viewDis = 5;
 
@@ -23,22 +28,46 @@ public class EnemyWanderAI : MonoBehaviour
     private bool isMovingDown = false;
     public Action type;
     
-    public GameObject playerPos;
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    public GameObject[] playerPos;
+   
     void Update()
     {
-        if (EnemyVision.playerIsInLOS == true)
+
+        playerIsInLOS = false;
+        playerIsInLOS1 = false;
+        playerIsInLOS2 = false;
+        float distance = Vector3.Distance(transform.position, playerPos[0].transform.position);
+        if (distance <= losRadius)
+        {
+
+            CheckLOS();
+        }
+
+
+        float distance1 = Vector3.Distance(transform.position, playerPos[1].transform.position);
+        if (distance1 <= losRadius)
+        {
+
+            CheckLOS1();
+        }
+
+        float distance2 = Vector3.Distance(transform.position, playerPos[2].transform.position);
+        if (distance2<= losRadius)
+        {
+
+            CheckLOS2();
+        }
+
+
+
+
+        if (playerIsInLOS == true || playerIsInLOS1 == true || playerIsInLOS2 == true)
         {
             type = Action.Attack;
         }
-        else if (EnemyVision.playerIsInLOS == false)
-        {
-            type = Action.Wander;
+        else
+       {
+           type = Action.Wander;
         }
 
         if (type == Action.Wander)
@@ -72,24 +101,44 @@ public class EnemyWanderAI : MonoBehaviour
             }
         }else if (type == Action.Attack)
         {
-            transform.LookAt(playerPos.transform);
-
-           /* Vector3 newplayerPos = playerPos.transform.position;
-            newplayerPos.y = transform.position.y;
-            newplayerPos.z = transform.position.z;
-
-            float distance = Vector3.Distance(transform.position, newplayerPos);
-            if (distance<5)
+            float distanceP1 = Vector3.Distance(transform.position, playerPos[0].transform.position);
+           float distanceP2 = Vector3.Distance(transform.position,playerPos[1].transform.position);
+            float distanceP3 = Vector3.Distance(transform.position, playerPos[2].transform.position);
+         
+           if(distanceP1<=distanceP2 && distanceP1 <= distanceP3 && playerIsInLOS == true)
             {
-                newplayerPos.x = transform.position.x ;
+                 transform.LookAt(playerPos[0].transform);
+                transform.position = Vector3.MoveTowards(transform.position, playerPos[0].transform.position, .03f) ;
             }
+            if (distanceP2 < distanceP1 && distanceP2 < distanceP3 && playerIsInLOS1 == true)
+            {
+                transform.LookAt(playerPos[1].transform);
+                transform.position = Vector3.MoveTowards(transform.position, playerPos[1].transform.position, .03f);
+            }
+            if (distanceP3 < distanceP2 && distanceP3 < distanceP1 && playerIsInLOS2==true)
+            {
+                transform.LookAt(playerPos[2].transform);
+                transform.position = Vector3.MoveTowards(transform.position, playerPos[2].transform.position, .03f);
+            }
+           /*   Vector3 newplayerPos = playerPos.transform.position;
+             newplayerPos.y = transform.position.y;
+             newplayerPos.z = transform.position.z;
 
-            Debug.Log(distance);
-            */
-            transform.position = Vector3.MoveTowards(transform.position, playerPos.transform.position, .03f) ;
+             float distance = Vector3.Distance(transform.position, newplayerPos);
+             if (distance<5)
+             {
+                 newplayerPos.x = transform.position.x ;
+             }
+
+             Debug.Log(distance);
+             */
+
             // here is how it targets the player
         }
        
+
+
+
     }
 
 
@@ -147,6 +196,81 @@ public class EnemyWanderAI : MonoBehaviour
 
 
         isWandering = false;
+    }
+
+
+
+
+
+
+
+    void CheckLOS()
+    {
+
+        Vector3 direction = playerPos[0].transform.position - transform.position;
+        float angle = Vector3.Angle(direction, transform.forward);
+        
+        if (angle < fieldOfViewAngle * 0.5f)
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, direction.normalized, out hit, losRadius))
+            {
+                if (hit.collider.tag == "UnitPlayer")
+                {
+                    playerIsInLOS = true;
+
+
+                }
+                else playerIsInLOS = false;
+
+            }
+        }
+        
+
+    }
+    void CheckLOS1()
+    {
+        Vector3 direction = playerPos[1].transform.position - transform.position;
+    float angle = Vector3.Angle(direction, transform.forward);
+        
+        if (angle < fieldOfViewAngle * 0.5f)
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, direction.normalized, out hit, losRadius))
+            {
+                if (hit.collider.tag == "UnitPlayer")
+                {
+                    playerIsInLOS1 = true;
+
+
+                }
+                else playerIsInLOS1 = false;
+
+            }
+        }
+     }
+
+
+    void CheckLOS2()
+    {
+        Vector3 direction = playerPos[2].transform.position - transform.position;
+        float angle = Vector3.Angle(direction, transform.forward);
+    
+        if (angle < fieldOfViewAngle * 0.5f)
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, direction.normalized, out hit, losRadius))
+            {
+                if (hit.collider.tag == "UnitPlayer")
+                {
+                    playerIsInLOS2 = true;
+
+
+                }
+                else playerIsInLOS2 = false;
+
+            }
+        }
     }
 
     public enum     Action
