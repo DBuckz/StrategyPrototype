@@ -13,10 +13,10 @@ public class UpgradeShop : MonoBehaviour
 
     public static int gunDamage = 10;
 
-    private int costD = 3000;
-    private int costS = 3000;
-    private int costH = 3000;
-    private int costR = 1500;
+    private int costD = 300;
+    private int costS = 300;
+    private int costH = 300;
+    private int costR = 150;
 
     public GameObject Player1;
     public GameObject Player2;
@@ -46,7 +46,7 @@ public class UpgradeShop : MonoBehaviour
         Shop();
     }
 
-    void Shop()
+     public void Shop()
     {
         if (buyDamage)
         {
@@ -55,7 +55,7 @@ public class UpgradeShop : MonoBehaviour
                 gunDamage += 10;
                 ScrapCollecter.ScrapCount -= costD;
                 costD *= 2;
-                Damage();
+                Damage1();
                 buyDamage = false;
             }
             else buyDamage = false;
@@ -79,47 +79,48 @@ public class UpgradeShop : MonoBehaviour
         {
             if (ScrapCollecter.ScrapCount > costS)
             {
-                Health.maxHealth += 500;
+                // += 500;
                 ScrapCollecter.ScrapCount -= costS;
                 costS *= 2;
-                Speed();
-                buyHP = false;
+                Speed1();
+                buySpeed = false;
             }
-            else buyHP = false;
+            else buySpeed = false;
         }
 
         if (buyRepair)
         {
             if (ScrapCollecter.ScrapCount > costR)
             {
-                Health.maxHealth += 500;
+                Health.health += 50;
                 ScrapCollecter.ScrapCount -= costR;
-                costR *= 2;
-                Repair();
-                buyHP = false;
+                Repair1();
+                buyRepair = false;
             }
-            else buyHP = false;
+            else buyRepair = false;
         }
 
-        void Damage()
-        {
-            buyDamage = true;
-        }
 
-        void HP()
-        {
-            buyHP = !buyHP;
-        }
+     }
 
-        void Speed()
-        {
-            buySpeed = !buySpeed;
-        }
-
-        void Repair()
-        {
-            buySpeed = !buySpeed;
-        }
-
+    public void Damage1()
+    {
+        buyDamage = true;
     }
+
+    public void HP()
+    {
+        buyHP = !buyHP;
+    }
+
+    public void Speed1()
+    {
+        buySpeed = !buySpeed;
+    }
+
+    public void Repair1()
+    {
+        buyRepair = !buyRepair;
+    }
+
 }

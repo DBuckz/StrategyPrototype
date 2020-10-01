@@ -298,9 +298,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2021116317}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
+        m_TargetAssemblyTypeName: UpgradeShop, Assembly-CSharp
+        m_MethodName: Damage1
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -364,11 +364,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2999633786474649326, guid: 12307d19f1ccfe5459711c5920169572, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.16
+      value: -2.08
       objectReference: {fileID: 0}
     - target: {fileID: 2999633786474649326, guid: 12307d19f1ccfe5459711c5920169572, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.638176
+      value: -0.13
       objectReference: {fileID: 0}
     - target: {fileID: 2999633786474649326, guid: 12307d19f1ccfe5459711c5920169572, type: 3}
       propertyPath: m_LocalPosition.z
@@ -640,13 +640,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2021116316}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 2021116317}
+        m_TargetAssemblyTypeName: UpgradeShop, Assembly-CSharp
+        m_MethodName: Speed1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1195,52 +1195,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e01a27e00b2f80643a31a840841a9fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 497341422}
-  gradient:
-    key0:
-      r: 0.9811321
-      g: 0
-      b: 0
-      a: 1
-    key1:
-      r: 0.164094
-      g: 0.990566
-      b: 0
-      a: 1
-    key2:
-      r: 0
-      g: 0
-      b: 0
-      a: 0
-    key3:
-      r: 0
-      g: 0
-      b: 0
-      a: 0
-    key4:
-      r: 0
-      g: 0
-      b: 0
-      a: 0
-    key5:
-      r: 0
-      g: 0
-      b: 0
-      a: 0
-    key6:
-      r: 0
-      g: 0
-      b: 0
-      a: 0
-    key7:
-      r: 0
-      g: 0
-      b: 0
-      a: 0
-    m_Mode: 0
-    m_NumColorKeys: 2
-    m_NumAlphaKeys: 2
-  fill: {fileID: 1425838950}
 --- !u!1 &501974369
 GameObject:
   m_ObjectHideFlags: 0
@@ -1552,13 +1506,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2021116316}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 2021116317}
+        m_TargetAssemblyTypeName: UpgradeShop, Assembly-CSharp
+        m_MethodName: HP
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1701,52 +1655,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e01a27e00b2f80643a31a840841a9fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 589277214}
-  gradient:
-    key0:
-      r: 0.9811321
-      g: 0.036190644
-      b: 0
-      a: 1
-    key1:
-      r: 0
-      g: 1
-      b: 0.027567148
-      a: 1
-    key2:
-      r: 0
-      g: 0
-      b: 0
-      a: 0
-    key3:
-      r: 0
-      g: 0
-      b: 0
-      a: 0
-    key4:
-      r: 0
-      g: 0
-      b: 0
-      a: 0
-    key5:
-      r: 0
-      g: 0
-      b: 0
-      a: 0
-    key6:
-      r: 0
-      g: 0
-      b: 0
-      a: 0
-    key7:
-      r: 0
-      g: 0
-      b: 0
-      a: 0
-    m_Mode: 0
-    m_NumColorKeys: 2
-    m_NumAlphaKeys: 2
-  fill: {fileID: 1650105787}
 --- !u!1001 &632593585
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2242,7 +2150,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2999633786474649326, guid: 12307d19f1ccfe5459711c5920169572, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.934247
+      value: -4.31
       objectReference: {fileID: 0}
     - target: {fileID: 2999633786474649326, guid: 12307d19f1ccfe5459711c5920169572, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2827,13 +2735,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2021116316}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 2021116317}
+        m_TargetAssemblyTypeName: UpgradeShop, Assembly-CSharp
+        m_MethodName: Repair1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3787,52 +3695,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e01a27e00b2f80643a31a840841a9fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 1998716267}
-  gradient:
-    key0:
-      r: 0.9811321
-      g: 0
-      b: 0
-      a: 1
-    key1:
-      r: 0
-      g: 1
-      b: 0.060104847
-      a: 1
-    key2:
-      r: 0
-      g: 0
-      b: 0
-      a: 0
-    key3:
-      r: 0
-      g: 0
-      b: 0
-      a: 0
-    key4:
-      r: 0
-      g: 0
-      b: 0
-      a: 0
-    key5:
-      r: 0
-      g: 0
-      b: 0
-      a: 0
-    key6:
-      r: 0
-      g: 0
-      b: 0
-      a: 0
-    key7:
-      r: 0
-      g: 0
-      b: 0
-      a: 0
-    m_Mode: 0
-    m_NumColorKeys: 2
-    m_NumAlphaKeys: 2
-  fill: {fileID: 284498504}
 --- !u!1 &2012842409
 GameObject:
   m_ObjectHideFlags: 0
@@ -4115,8 +3977,8 @@ MonoBehaviour:
   Bullet: {fileID: 2113721264}
   upgradeMenu: {fileID: 451046271}
   Damage: {fileID: 689287186}
-  Speed: {fileID: 676959886}
-  MaxHealth: {fileID: 1988058222}
+  Speed: {fileID: 1988058222}
+  MaxHealth: {fileID: 676959886}
   Repair: {fileID: 468262617}
 --- !u!4 &2021116318
 Transform:
@@ -4533,7 +4395,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4792432088616941126, guid: 94570bc2f702871439dd7df1c798e331, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 94570bc2f702871439dd7df1c798e331, type: 3}
 --- !u!1001 &4849473147480633493
 PrefabInstance:
@@ -4544,7 +4407,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4849473146997973792, guid: 07f0841ffa5de5e48927c13f29766228, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.64
+      value: -3.84
       objectReference: {fileID: 0}
     - target: {fileID: 4849473146997973792, guid: 07f0841ffa5de5e48927c13f29766228, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4552,7 +4415,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4849473146997973792, guid: 07f0841ffa5de5e48927c13f29766228, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.94
+      value: 4.59
       objectReference: {fileID: 0}
     - target: {fileID: 4849473146997973792, guid: 07f0841ffa5de5e48927c13f29766228, type: 3}
       propertyPath: m_LocalRotation.x
