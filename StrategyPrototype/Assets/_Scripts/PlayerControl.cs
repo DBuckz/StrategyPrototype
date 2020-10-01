@@ -39,7 +39,7 @@ public class PlayerControl : MonoBehaviour
         //   myTransform.position = cam.ScreenToWorldPoint(Input.mousePosition);
         var vert = Input.GetAxis("Mouse Y");
 
-      //  BasePlaneController();
+        BasePlaneController();
         
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
