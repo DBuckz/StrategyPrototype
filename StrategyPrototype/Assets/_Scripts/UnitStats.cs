@@ -7,7 +7,7 @@ public class UnitStats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
     [Header("Unit Stats")]
 
@@ -16,7 +16,13 @@ public class UnitStats : MonoBehaviour
 
     [Header("Death Effects")]
     public GameObject[] effects;
+    public GameObject finalDeathEffect;
 
+    [Header("Misc")]
+    public float timer = 3f;
+   // private IEnumerator coroutine;
+    
+    
 
     // Update is called once per frame
     void Update()
@@ -39,6 +45,13 @@ public class UnitStats : MonoBehaviour
             }
         }
         isDead = true;
-        Destroy(gameObject);    // Will be put delayed further up, if death animations in place
+        Invoke("DestroyObject", timer);
+    }
+
+
+    public void DestroyObject()
+    {
+        Instantiate(finalDeathEffect, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 }
