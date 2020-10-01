@@ -55,7 +55,7 @@ public class PlayerLOS : MonoBehaviour
             float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
 
             RaycastHit hit;
-            Debug.Log(distanceToEnemy);
+          //  Debug.Log(distanceToEnemy);
             if (Physics.Raycast(transform.position, direction,out hit, Mathf.Infinity) && distanceToEnemy < range && enemy != null)
             {
                 Debug.DrawRay(transform.position, direction);
