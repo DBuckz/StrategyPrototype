@@ -16,7 +16,8 @@ public class PlayerControl : MonoBehaviour
     private Vector3 pos;
     public LayerMask mask = 8;
     public GameObject axis;
-    public GameObject YaxisControl;
+    public GameObject YaxisControl; // controls the plane
+    public GameObject basePlaneControl;
    // public GameObject planeControl;
     public GameObject unitOptions;
     [SerializeField]
@@ -37,6 +38,8 @@ public class PlayerControl : MonoBehaviour
         units = GameObject.FindGameObjectsWithTag("UnitPlayer");
         //   myTransform.position = cam.ScreenToWorldPoint(Input.mousePosition);
         var vert = Input.GetAxis("Mouse Y");
+
+      //  BasePlaneController();
         
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
@@ -49,6 +52,8 @@ public class PlayerControl : MonoBehaviour
             if (hit.collider.tag == "CursorHitCol")     // hits cursor nav plane
             {
 
+                
+
 
                 if (Input.GetMouseButton(1))    // Move Unit X,Z
                 {
@@ -60,10 +65,8 @@ public class PlayerControl : MonoBehaviour
 
                         moveUD = Input.GetAxis("Mouse Y") * mouseSensY * Time.deltaTime;
                         myTransform.Translate(new Vector3(0, moveUD, 0));
-                //    Mathf.Clamp(myTransform.position.y,yRangeLower,yRangeUpper);
-                //    myTransform.Translate(Mathf.Clamp(transform.position.y(moveUD),yRangeLower,yRangeUpper));
-                
-                    
+
+   
 
                 }
                 else if (Input.GetMouseButtonUp(1)) // Move Unit Y
@@ -134,6 +137,29 @@ public class PlayerControl : MonoBehaviour
         #endregion
 
 
+    }
+
+
+
+    void BasePlaneController()
+    {
+
+        float sumY = 0;
+        int numSel = 0;
+        float average;
+        for (int i = 0; i < units.Length; i++)
+        {
+            if (units[i].GetComponent<PlayerUnitMove>().selected)
+            {
+                numSel++;
+                sumY += units[i].GetComponent<Transform>().position.y;
+                average = sumY / numSel;
+                basePlaneControl.transform.position = new Vector3(0, average, 0);
+                
+            }
+
+        }   // Will move Y nav plane to selected unit or average Y position of units
+        
     }
 
     #region

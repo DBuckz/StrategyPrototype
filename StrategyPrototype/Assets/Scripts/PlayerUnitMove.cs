@@ -8,16 +8,22 @@ public class PlayerUnitMove : MonoBehaviour
     void Start()
     {
         myTransform = GetComponent<Transform>();
+        myVectorY = GetComponent<Vector3>();
     }
 
     private Vector3 pos;
-    private Transform myTransform;
-    public GameObject myTargetPos;
-    public GameObject movePos;
-    private Vector3 myVector;
+    private Transform myTransform;  // from
+    public GameObject myTargetPos;  // to 
+  //  public GameObject movePos;
+    private Vector3 myVectorY;
+    private Vector3 myVectorDir;
     public bool selected;
     public GameObject[] selectInds;
     public float speed = 2f;
+    public float rotSpeed;
+
+
+
 
     // Update is called once per frame
     void FixedUpdate()
@@ -25,6 +31,19 @@ public class PlayerUnitMove : MonoBehaviour
       //  Debug.Log("Cur "+selected);
         if (myTargetPos != null)
         {
+            Debug.Log("Rotatus");
+            //    myTransform.rotation = Quaternion.Lerp(myTransform.rotation,myTargetPos.gameObject.transform.rotation,speed * Time.deltaTime);
+            //myTransform.Rotate(new Vector3(0,0,0));
+            //upVec = Vector3.Lerp(upVec, target.up, UpDownSpeed * Time.deltaTime);
+
+          //  myVectorDir = Vector3.Lerp(myVectorDir, myTargetPos.transform.position, rotSpeed * Time.deltaTime);
+          //  myVectorY = Vector3.Lerp(myVectorY, myTargetPos.transform.up, rotSpeed * Time.deltaTime);
+
+
+
+            
+            //  myTransform.rotation = myVectorY
+            myTransform.LookAt(new Vector3(myTargetPos.transform.position.x,myTransform.position.y,myTargetPos.transform.position.z));  // Placeholder Rotation
             myTransform.position = Vector3.MoveTowards(myTransform.position, myTargetPos.gameObject.transform.position, speed * Time.deltaTime);
         }
 
