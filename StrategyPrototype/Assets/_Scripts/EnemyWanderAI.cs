@@ -32,31 +32,39 @@ public class EnemyWanderAI : MonoBehaviour
    
     void Update()
     {
+        GameObject[] unitPlayers = GameObject.FindGameObjectsWithTag("UnitPlayer");
 
+        foreach(GameObject UnitPlayer in unitPlayers)
+        {
+       
+     float distance = Vector3.Distance(transform.position, UnitPlayer.transform.position);
+        if (distance <= losRadius)
+            {
+                for (int i = 0; i < unitPlayers.Length; i++)
+                {
+                if ( i == 0)
+                    {
+                        CheckLOS();
+                    }
+                if (i == 1)
+                {
+                    CheckLOS1();
+                }
+                if (i == 2)
+                {
+                    CheckLOS2();
+                }
+                }
+              
+            }
+        }
         playerIsInLOS = false;
         playerIsInLOS1 = false;
         playerIsInLOS2 = false;
-        float distance = Vector3.Distance(transform.position, playerPos[0].transform.position);
-        if (distance <= losRadius)
-        {
-
-            CheckLOS();
-        }
+      
 
 
-        float distance1 = Vector3.Distance(transform.position, playerPos[1].transform.position);
-        if (distance1 <= losRadius)
-        {
-
-            CheckLOS1();
-        }
-
-        float distance2 = Vector3.Distance(transform.position, playerPos[2].transform.position);
-        if (distance2<= losRadius)
-        {
-
-            CheckLOS2();
-        }
+     
 
 
 
@@ -105,17 +113,17 @@ public class EnemyWanderAI : MonoBehaviour
            float distanceP2 = Vector3.Distance(transform.position,playerPos[1].transform.position);
             float distanceP3 = Vector3.Distance(transform.position, playerPos[2].transform.position);
          
-           if(distanceP1<=distanceP2 && distanceP1 <= distanceP3 && playerIsInLOS == true)
+           if(  playerIsInLOS == true)
             {
                  transform.LookAt(playerPos[0].transform);
                 transform.position = Vector3.MoveTowards(transform.position, playerPos[0].transform.position, .03f) ;
             }
-            if (distanceP2 < distanceP1 && distanceP2 < distanceP3 && playerIsInLOS1 == true)
+            if ( playerIsInLOS1 == true)
             {
                 transform.LookAt(playerPos[1].transform);
                 transform.position = Vector3.MoveTowards(transform.position, playerPos[1].transform.position, .03f);
             }
-            if (distanceP3 < distanceP2 && distanceP3 < distanceP1 && playerIsInLOS2==true)
+            if ( playerIsInLOS2==true)
             {
                 transform.LookAt(playerPos[2].transform);
                 transform.position = Vector3.MoveTowards(transform.position, playerPos[2].transform.position, .03f);
