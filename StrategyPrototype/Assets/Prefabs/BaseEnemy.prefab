@@ -151,8 +151,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   isDead: 0
-  effects: []
-  finalDeathEffect: {fileID: 0}
+  effects:
+  - {fileID: 8484879158338214203, guid: 147c08377506baa408966bbe9c7ad706, type: 3}
+  finalDeathEffect: {fileID: 6057485466005046004, guid: 9935cfc3e9a82b44585e73b6fa5186d1, type: 3}
   timer: 3
 --- !u!114 &4787265745857311020
 MonoBehaviour:

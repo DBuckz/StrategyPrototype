@@ -459,9 +459,9 @@ GameObject:
   - component: {fileID: 290476023}
   - component: {fileID: 290476022}
   - component: {fileID: 290476021}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: CursorHitCol
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -581,11 +581,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7549391144536429107, guid: 38d639f34c5fb214e92e4427963b1749, type: 3}
       propertyPath: m_LocalScale.z
-      value: 20
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7549391144536429111, guid: 38d639f34c5fb214e92e4427963b1749, type: 3}
       propertyPath: m_Name
       value: BaseNavPlane
+      objectReference: {fileID: 0}
+    - target: {fileID: 7549391144536429111, guid: 38d639f34c5fb214e92e4427963b1749, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38d639f34c5fb214e92e4427963b1749, type: 3}
@@ -1320,6 +1324,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3543969837030547583, guid: 26a88f9514933c148843af84541b3ea5, type: 3}
   m_PrefabInstance: {fileID: 1215725364}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1336603808 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7549391144536429111, guid: 38d639f34c5fb214e92e4427963b1749, type: 3}
+  m_PrefabInstance: {fileID: 302760788}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1338622774
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1798,6 +1807,10 @@ PrefabInstance:
       propertyPath: unitOptions
       value: 
       objectReference: {fileID: 1106706763}
+    - target: {fileID: 2165131058954262246, guid: c1c3805f56fa8434c86e4c6db3af169e, type: 3}
+      propertyPath: basePlaneControl
+      value: 
+      objectReference: {fileID: 1336603808}
     - target: {fileID: 2165131058954262249, guid: c1c3805f56fa8434c86e4c6db3af169e, type: 3}
       propertyPath: m_Name
       value: CursorPosCheck
@@ -2060,7 +2073,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1256616813787336476, guid: 5707582e8d5e555479a38ca510321b1b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1256616813787336477, guid: 5707582e8d5e555479a38ca510321b1b, type: 3}
       propertyPath: m_LocalScale.x

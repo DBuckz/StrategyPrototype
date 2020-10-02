@@ -53,6 +53,18 @@ public class Projectile : MonoBehaviour
 
         }
 
+        if (collision.collider.tag == "Obstacle")
+        {
+            if (effects != null)
+            {
+                for (int i = 0; i < effects.Length; i++)
+                {
+                    Instantiate(effects[i], transform.position, Quaternion.identity);
+                }
+            }
+            Destroy(gameObject);
+        }
+
     }
 
 
