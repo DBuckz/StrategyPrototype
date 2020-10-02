@@ -50,6 +50,7 @@ public class PlayerUnitMove : MonoBehaviour
             var direction = myTargetPos.transform.position - transform.position;
             RaycastHit hit;
             Debug.DrawRay(transform.position, direction, Color.green);
+           // LineRenderer
             if (Physics.Raycast(transform.position, direction, out hit, 2.5f))
             {
                 
