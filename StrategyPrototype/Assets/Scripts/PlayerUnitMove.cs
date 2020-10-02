@@ -32,19 +32,36 @@ public class PlayerUnitMove : MonoBehaviour
         if (myTargetPos != null)
         {
             Debug.Log("Rotatus");
+            #region
             //    myTransform.rotation = Quaternion.Lerp(myTransform.rotation,myTargetPos.gameObject.transform.rotation,speed * Time.deltaTime);
             //myTransform.Rotate(new Vector3(0,0,0));
             //upVec = Vector3.Lerp(upVec, target.up, UpDownSpeed * Time.deltaTime);
 
-          //  myVectorDir = Vector3.Lerp(myVectorDir, myTargetPos.transform.position, rotSpeed * Time.deltaTime);
-          //  myVectorY = Vector3.Lerp(myVectorY, myTargetPos.transform.up, rotSpeed * Time.deltaTime);
+            //  myVectorDir = Vector3.Lerp(myVectorDir, myTargetPos.transform.position, rotSpeed * Time.deltaTime);
+            //  myVectorY = Vector3.Lerp(myVectorY, myTargetPos.transform.up, rotSpeed * Time.deltaTime);
+            #endregion comments
 
 
 
-            
             //  myTransform.rotation = myVectorY
             myTransform.LookAt(new Vector3(myTargetPos.transform.position.x,myTransform.position.y,myTargetPos.transform.position.z));  // Placeholder Rotation
             myTransform.position = Vector3.MoveTowards(myTransform.position, myTargetPos.gameObject.transform.position, speed * Time.deltaTime);
+
+            var direction = myTargetPos.transform.position - transform.position;
+            RaycastHit hit;
+            Debug.DrawRay(transform.position, direction, Color.green);
+            if (Physics.Raycast(transform.position, direction, out hit, 2.5f))
+            {
+                
+                if (hit.collider.tag == "Obstacle")
+                {
+                    Debug.Log("Obstacle in the way stopping!");
+                    Destroy(myTargetPos);
+                }
+                
+                
+            }
+
         }
 
 

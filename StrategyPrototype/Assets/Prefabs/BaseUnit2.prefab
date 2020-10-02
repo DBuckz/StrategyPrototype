@@ -397,7 +397,7 @@ MonoBehaviour:
   selectInds:
   - {fileID: 9037623546699096754}
   - {fileID: 5910095754817192249}
-  speed: 2
+  speed: 4
   rotSpeed: 0
 --- !u!54 &7569746180200081147
 Rigidbody:

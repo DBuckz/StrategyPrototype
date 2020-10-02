@@ -42,7 +42,7 @@ public class EnemyLOS : MonoBehaviour
             float distanceToPlayer = Vector3.Distance(transform.position, p_Unit.transform.position);
 
             RaycastHit hit;
-            Debug.Log(distanceToPlayer);
+            
             if (Physics.Raycast(transform.position, direction, out hit, Mathf.Infinity) && distanceToPlayer < range)
             {
                 Debug.DrawRay(transform.position, direction, Color.red);
